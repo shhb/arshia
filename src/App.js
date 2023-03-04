@@ -1,7 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Footer from './components/Footer'
+import PersonalCard from './components/PersonalCard';
+import  { TableStyle} from "./components/FooterStyles";
 function App() {
+
+  let personalData = [{
+    "perID": 100,
+    "email": "arash@tar.edu",
+    "firstName": "arash",
+    "lastName": "F",
+    "imageReference": " http://localhost:3001/a.png "
+    } ,
+    {
+      "perID": 200,
+      "email": "aria@tar.edu",
+      "firstName": "aria",
+      "lastName": "F",
+      "imageReference": " http://localhost:3001/b.png "
+      }
+  ]
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +37,18 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+      <TableStyle>
+        {personalData.map((object, index)=>{
+            return (
+              
+                <PersonalCard item={object} key={index} />
+             
+            )
+        })}
+      </TableStyle>
+      </div>
+      <Footer />
     </div>
   );
 }
